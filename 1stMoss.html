@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Living Moss</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kranky&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unkempt:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="1stMoss.css">
+  </head>
+  <div class="container">
+  <body>
+    <h1>Welcome!!</h1>
+    <p>You have found the first Moss Installation!
+        <br>
+        <b>CONGRATULATIONS!!!</b></p>
+    <button id="showBtn" class="showBtn">Click to Start!</button>
+    <div id="secretContent" style="display:none;">
+        <p>Moss Introspection #1</p>
+        <form action="/upload-endpoint" method="POST" enctype="multipart/form-data">
+            <label for="file-upload">Choose a file to upload:</label>
+            <input type="file" id="file-upload" name="uploaded_file">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <script>
+        const btn = document.getElementById('showBtn');
+        const content = document.getElementById('secretContent');
+        btn.addEventListener('click', function(){
+            if (content.style.display === 'none'){
+                content.style.display = 'block';
+            }else{
+                content,style.display = 'none';
+                btn.textContent = 'Show Content'
+            }
+        });
+    </script>
+
+  </body>
+  </div>
+</html>

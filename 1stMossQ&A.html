@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Living Moss</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kranky&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unkempt:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="1stMossQ&A.css">
+  </head>
+  <div class="container">
+  <body>
+   <div class="question-container" id="q1">
+  <p>Are you allowed to touch the moss?</p>
+  <label><input type="radio" name="q1" value="wrong">YES</label><br>
+  <label><input type="radio" name="q1" value="correct">NO</label><br>
+  <label><input type="radio" name="q1" value="wrong">SOMETIMES</label><br>
+  <label><input type="radio" name="q1" value="wrong">maybe</label><br>
+  <button onclick="checkAnswer('q1', 'q2', 'correct')">Submit</button>
+  <p id="q1-feedback" class="feedback"></p>
+</div>
+
+<div class="question-container hidden" id="q2">
+  <p>What is missing in this picture?</p>
+  <img src="NoMoss1stFloor.jpg">
+  <label><input type="radio" name="q2" value="correct">Moss</label><br>
+  <label><input type="radio" name="q2" value="wrong">People</label><br>
+  <label><input type="radio" name="q2" value="wrong">Sky</label><br>
+  <button onclick="checkAnswer('q2', 'q3', 'correct')">Submit</button>
+  <p id="q2-feedback" class="feedback"></p>
+</div>
+
+<div class="question-container hidden" id="q3">
+  <p>You finished the quiz!</p>
+  <br>
+  <br>
+  <p1><b>Time to get Introspective:</b></p1>
+  <iframe 
+  src="https://form.jotform.com/262656988016066" 
+  style="width:100%; border:none;" 
+  height="600">
+</iframe>
+</div>
+
+<script>
+  function checkAnswer(currentId, nextId, correctAnswer) {
+  const selected = document.querySelector(`input[name="${currentId}"]:checked`);
+  const feedback = document.getElementById(`${currentId}-feedback`);
+
+  if (!selected) {
+    feedback.style.color = "orange";
+    feedback.textContent = "Please select an answer.";
+    return;
+  }
+
+  if (selected.value === correctAnswer) {
+    feedback.style.color = "green";
+    feedback.textContent = "Correct!";
+    
+    // Wait a brief moment before showing the next question
+    setTimeout(() => {
+      document.getElementById(currentId).classList.add("hidden");
+      const nextQuestion = document.getElementById(nextId);
+      if (nextQuestion) {
+        nextQuestion.classList.remove("hidden");
+      }
+    }, 800);
+  } else {
+    feedback.style.color = "red";
+    feedback.textContent = "Incorrect. Try again!";
+  }
+}
+
+</script>
+
+  </body>
+  </div>
+  </html>  

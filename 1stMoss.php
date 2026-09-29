@@ -8,7 +8,7 @@
    // Define the folder where files will be saved
    $targetDir = "1stMoss/";
 
-   // Create the folder of it doesn't exist
+   // Create the folder if it doesn't exist
    if (!is_dir($targetDir)){
     mkdir($targetDir, 0755, true);
    }

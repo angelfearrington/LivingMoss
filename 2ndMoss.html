@@ -14,12 +14,93 @@
   <div class="container">
   <body>
     <h1>2nd Floor</h1>
+   <div class="question-container" id="q1">
+  <p>Which Image Is Accurate to Reality?</p>
+    <img src="2nd floor no moss copy.jpg">
+    <img src="20260929_122819.jpg">
+    <img src="extra moss 2nd floor.jpg">
+    <br>
+  <label><input type="radio" name="q1" value="wrong">IMAGE #1</label><br>
+  <label><input type="radio" name="q1" value="correct">IMAGE #2</label><br>
+  <label><input type="radio" name="q1" value="wrong">IMAGE #3</label><br>
+  <button onclick="checkAnswer('q1', 'q2', 'correct')">Submit</button>
+  <p id="q1-feedback" class="feedback"></p>
+</div>
+<br>
+<br>
+<div class="question-container hidden" id="q2">
+  <p>Do You Like Image #1?</p>
+  <img src="2nd floor no moss copy.jpg">
+  <br>
+  <label><input type="radio" name="q2" value="correct">NO</label><br>
+  <label><input type="radio" name="q2" value="wrong">YES</label><br>
+  <label><input type="radio" name="q2" value="wrong">...maybe</label><br>
+  <button onclick="checkAnswer('q2', 'q3', 'correct')">Submit</button>
+  <p id="q2-feedback" class="feedback"></p>
+</div>
+<br>
+<div class="question-container hidden" id="q3">
+  <p>Do You Like Image #2?</p>
+  <img src="20260929_122819.jpg"> 
+   <br>
+    <label><input type="radio" name="q3" value="correct">YES</label><br>
+    <label><input type="radio" name="q3" value="wrong">NO</label><br>
+    <label><input type="radio" name="q3" value="correct">I GUESS SO</label><br>
+    <button onclick="checkAnswer('q3', 'q4', 'correct')">Submit</button>
+    <p id="q3-feedback" class="feedback"></p>
+</div>
+    <br>
+<div class="question-container hidden" id="q4">
+  <p>Do You Like Image #3?</p>
+  <img src="extra moss 2nd floor.jpg">
+  <br>
+    <label><input type="radio" name="q4" value="correct">YES</label><br>
+    <label><input type="radio" name="q4" value="correct">ABSOLUTELY</label><br>
+    <label><input type="radio" name="q4" value="wrong">NO</label><br>
+    <button onclick="checkAnswer('q4', 'q5', 'correct')">Submit</button>
+    <p id="q4-feedback" class="feedback"></p>
+</div>
+    <div class="question-container hidden" id="q5">
+  <p>You finished the quiz!</p>
+  <br>
+  <p1>Fill Out This Form To Let Out Your Inner Moss Fairy!!</p1>
+  <br>
     <iframe 
   src="https://form.jotform.com/262726260339055" 
   style="width:100%; border:none;" 
   height="600">
 </iframe>
 
+<script>
+  function checkAnswer(currentId, nextId, correctAnswer) {
+  const selected = document.querySelector(`input[name="${currentId}"]:checked`);
+  const feedback = document.getElementById(`${currentId}-feedback`);
+
+  if (!selected) {
+    feedback.style.color = "orange";
+    feedback.textContent = "Please select an answer.";
+    return;
+  }
+
+  if (selected.value === correctAnswer) {
+    feedback.style.color = "green";
+    feedback.textContent = "Correct!";
+    
+    // Wait a brief moment before showing the next question
+    setTimeout(() => {
+      document.getElementById(currentId).classList.add("hidden");
+      const nextQuestion = document.getElementById(nextId);
+      if (nextQuestion) {
+        nextQuestion.classList.remove("hidden");
+      }
+    }, 800);
+  } else {
+    feedback.style.color = "red";
+    feedback.textContent = "Incorrect. Try again!";
+  }
+}
+
+</script>
 
 
      </body>

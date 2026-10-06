@@ -6,7 +6,7 @@ h1{
   font-family: "Kranky", serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 145px;
+  font-size: 7rem;
   color:#009c15;
   margin-bottom:45px;
 }
@@ -14,7 +14,7 @@ p{
     font-family: "Unkempt", cursive;
   font-weight: 400;
   font-style: normal;
-  font-size:30px;
+  font-size:2rem;
   color: #004d0a;
   margin-top:0;
 }
@@ -22,7 +22,7 @@ p1{
   font-family: "Unkempt", cursive;
   font-weight: 400;
   font-style: normal;
-  font-size:30px;
+  font-size:1.5rem;
   color: #009c15;
   margin-top:0;
 }
@@ -38,4 +38,29 @@ img{
   margin: 0 auto;       
   padding: 0 20px;
   outline: 25px double white;      
+}
+.hidden {
+  display: none;
+}
+.question-container {
+  margin-bottom: 20px;
+  font-family: sans-serif;
+}
+.feedback {
+  font-weight: bold;
+  margin-top: 5px;
+}
+img{
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+input.wrong {
+  border: 2px solid #ff4d4d;
+  background-color: #ffe6e6;
+}
+
+input.right {
+  border: 2px solid #2ecc71;
+  background-color: #e8f8f5;
 }
